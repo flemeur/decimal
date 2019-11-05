@@ -120,7 +120,7 @@ func rightShift(a *decimal, k uint) {
 				return
 			}
 			for n>>k == 0 {
-				n = n * 10
+				n *= 10
 				r++
 			}
 			break

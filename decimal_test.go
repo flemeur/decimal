@@ -391,16 +391,15 @@ func TestRequireFromString(t *testing.T) {
 
 func TestRequireFromStringErrs(t *testing.T) {
 	s := "qwert"
-	var d Decimal
 	var err interface{}
 
-	func(d Decimal) {
+	func() {
 		defer func() {
 			err = recover()
 		}()
 
-		d = RequireFromString(s)
-	}(d)
+		RequireFromString(s)
+	}()
 
 	if err == nil {
 		t.Errorf("panic expected when parsing %s", s)
@@ -747,12 +746,6 @@ func TestDecimal_rescale(t *testing.T) {
 				s, d.String(),
 				d.value.String(), d.exp)
 		}
-
-		// test StringScaled
-		s2 := New(input.int, input.exp).StringScaled(input.rescale)
-		if s2 != s {
-			t.Errorf("expected %s, got %s", s, s2)
-		}
 	}
 }
 
@@ -1072,9 +1065,6 @@ func TestDecimal_Uninitialized(t *testing.T) {
 		}
 		if d.StringFixed(3) != "0.000" {
 			t.Errorf("expected 0, got %s", d.StringFixed(3))
-		}
-		if d.StringScaled(-2) != "0" {
-			t.Errorf("expected 0, got %s", d.StringScaled(-2))
 		}
 	}
 
@@ -2015,11 +2005,6 @@ func TestDecimal_Equalities(t *testing.T) {
 		t.Errorf("%q should not equal %q", a, c)
 	}
 
-	// note, this block should be deprecated, here for backwards compatibility
-	if !a.Equals(b) {
-		t.Errorf("%q should equal %q", a, b)
-	}
-
 	if !c.GreaterThan(b) {
 		t.Errorf("%q should be greater than  %q", c, b)
 	}
@@ -2194,7 +2179,7 @@ func TestNullDecimal_Scan(t *testing.T) {
 		// Scan succeeded... test resulting values
 		if !a.Valid {
 			t.Errorf("%s is null", a.Decimal)
-		} else if !a.Decimal.Equals(expected) {
+		} else if !a.Decimal.Equal(expected) {
 			t.Errorf("%s does not equal to %s", a.Decimal, expected)
 		}
 	}
@@ -2213,7 +2198,7 @@ func TestNullDecimal_Scan(t *testing.T) {
 		// Scan succeeded... test resulting values
 		if !a.Valid {
 			t.Errorf("%s is null", a.Decimal)
-		} else if !a.Decimal.Equals(expected) {
+		} else if !a.Decimal.Equal(expected) {
 			t.Errorf("%v does not equal %v", a, expected)
 		}
 	}
@@ -2236,7 +2221,7 @@ func TestNullDecimal_Scan(t *testing.T) {
 		// Scan succeeded... test resulting values
 		if !a.Valid {
 			t.Errorf("%s is null", a.Decimal)
-		} else if !a.Decimal.Equals(expected) {
+		} else if !a.Decimal.Equal(expected) {
 			t.Errorf("%v does not equal %v", a, expected)
 		}
 	}
@@ -2255,7 +2240,7 @@ func TestNullDecimal_Scan(t *testing.T) {
 		// Scan succeeded... test resulting values
 		if !a.Valid {
 			t.Errorf("%s is null", a.Decimal)
-		} else if !a.Decimal.Equals(expected) {
+		} else if !a.Decimal.Equal(expected) {
 			t.Errorf("%v does not equal %v", a, expected)
 		}
 	}
@@ -2308,7 +2293,7 @@ func TestBinary(t *testing.T) {
 		}
 
 		// The restored decimal should equal the original
-		if !d1.Equals(d2) {
+		if !d1.Equal(d2) {
 			t.Errorf("expected %v when restoring, got %v", d1, d2)
 		}
 	}
