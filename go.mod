@@ -1,3 +1,3 @@
-module github.com/Ryanair/decimal
+module github.com/flemeur/decimal
 
-go 1.12
+go 1.13

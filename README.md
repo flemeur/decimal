@@ -1,6 +1,10 @@
 # decimal
 
-[![Build Status](https://travis-ci.org/shopspring/decimal.png?branch=master)](https://travis-ci.org/shopspring/decimal) [![GoDoc](https://godoc.org/github.com/shopspring/decimal?status.svg)](https://godoc.org/github.com/shopspring/decimal) [![Go Report Card](https://goreportcard.com/badge/github.com/shopspring/decimal)](https://goreportcard.com/report/github.com/shopspring/decimal)
+[![GoDoc](https://godoc.org/github.com/flemeur/decimal?status.svg)](https://godoc.org/github.com/flemeur/decimal)
+[![Build Status](https://travis-ci.org/flemeur/decimal.png?branch=master)](https://travis-ci.org/flemeur/decimal) 
+[![Coverage Status](https://coveralls.io/repos/github/flemeur/decimal/badge.svg?branch=master)](https://coveralls.io/github/flemeur/decimal?branch=master)
+[![Go Report Card](https://goreportcard.com/badge/github.com/flemeur/decimal)](https://goreportcard.com/report/github.com/flemeur/decimal)
+[![GitHub license](https://img.shields.io/github/license/flemeur/decimal?color=blue)](https://github.com/flemeur/decimal/blob/master/LICENSE)
 
 Arbitrary-precision fixed-point decimal numbers in go.
 
