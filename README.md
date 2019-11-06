@@ -20,7 +20,7 @@ NOTE: can "only" represent numbers with a maximum of 2^31 digits after the decim
 
 ## Install
 
-Run `go get github.com/shopspring/decimal`
+Run `go get github.com/flemeur/decimal`
 
 ## Usage
 
@@ -29,7 +29,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/shopspring/decimal"
+	"github.com/flemeur/decimal"
 )
 
 func main() {
@@ -59,12 +59,7 @@ func main() {
 
 ## Documentation
 
-http://godoc.org/github.com/shopspring/decimal
-
-## Production Usage
-
-* [Spring](https://shopspring.com/), since August 14, 2014.
-* If you are using this in production, please let us know!
+http://godoc.org/github.com/flemeur/decimal
 
 ## FAQ
 
